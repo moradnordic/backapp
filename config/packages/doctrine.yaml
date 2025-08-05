@@ -1,0 +1,84 @@
+doctrine:
+    dbal:
+        default_connection: nd
+        connections:
+            nd:
+                driver: 'pdo_sqlsrv'
+                host: '%env(DB_HOST)%'
+                port: '%env(DB_PORT)%'
+                user: '%env(DB_USER)%'
+                password: '%env(DB_PASSWORD)%'
+                dbname: '%env(DB_NAME_ND)%'
+                schema_filter: '/^dbo\./'
+            oriwood:
+                driver: 'pdo_sqlsrv'
+                host: '%env(DB_HOST)%'
+                port: '%env(DB_PORT)%'
+                user: '%env(DB_USER)%'
+                password: '%env(DB_PASSWORD)%'
+                dbname: '%env(DB_NAME_ORIWOOD)%'
+                schema_filter: '/^dbo\./'
+            sage_system:
+                driver: 'pdo_sqlsrv'
+                host: '%env(DB_HOST)%'
+                port: '%env(DB_PORT)%'
+                user: '%env(DB_USER)%'
+                password: '%env(DB_PASSWORD)%'
+                dbname: '%env(DB_NAME_SAGE)%'
+                schema_filter: '/^dbo\./'
+    orm:
+        default_entity_manager: nd
+        entity_managers:
+            nd:
+                connection: nd
+                mappings:
+                    nd:
+                        is_bundle: false
+                        type: attribute
+                        dir: '%kernel.project_dir%/src/Entity/nd'
+                        prefix: 'App\Entity\nd'
+                        alias: nd
+            oriwood:
+                connection: oriwood
+                mappings:
+                    oriwood:
+                        is_bundle: false
+                        type: attribute
+                        dir: '%kernel.project_dir%/src/Entity/oriwood'
+                        prefix: 'App\Entity\oriwood'
+                        alias: oriwood
+            sage_system:
+                connection: sage_system
+                mappings:
+                    sage_system:
+                        is_bundle: false
+                        type: attribute
+                        dir: '%kernel.project_dir%/src/Entity/sage_system'
+                        prefix: 'App\Entity\sage_system'
+                        alias: sage_system
+
+when@test:
+    doctrine:
+        dbal:
+            # "TEST_TOKEN" is typically set by ParaTest
+            dbname_suffix: '_test%env(default::TEST_TOKEN)%'
+
+when@prod:
+    doctrine:
+        orm:
+            auto_generate_proxy_classes: false
+            proxy_dir: '%kernel.build_dir%/doctrine/orm/Proxies'
+            query_cache_driver:
+                type: pool
+                pool: doctrine.system_cache_pool
+            result_cache_driver:
+                type: pool
+                pool: doctrine.result_cache_pool
+
+    framework:
+        cache:
+            pools:
+                doctrine.result_cache_pool:
+                    adapter: cache.app
+                doctrine.system_cache_pool:
+                    adapter: cache.system

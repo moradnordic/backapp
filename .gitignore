@@ -1,4 +1,3 @@
-
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
@@ -8,3 +7,57 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+
+# Symfony default files and folders
+/.env
+.env.local
+.env.*.local
+
+
+# Symfony profiler
+/.web-server-pid
+
+# PHPStorm and other IDEs
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node-related (if using Encore)
+/node_modules/
+/public/build/
+/public/hot
+
+# Composer related
+composer.lock
+
+# PHPUnit
+/phpunit.xml
+/phpunit.xml.dist
+/tests/bootstrap.php
+
+# Logs and cache
+/log/
+*.log
+
+# Coverage results
+/coverage/
+
+# Translations cache (optional)
+/translations/*.cache
+
+# .vscode settings
+.vscode/
+
+# Docker-related (optional)
+.docker/
+docker-compose.override.yml
+
+# Misc
+*.swp
+*.bak
+*.tmp
+
