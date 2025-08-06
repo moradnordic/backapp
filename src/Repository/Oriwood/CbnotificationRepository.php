@@ -1,0 +1,48 @@
+<?php
+
+namespace App\Repository\Oriwood;
+
+use App\Entity\oriwood\Cbnotification;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
+
+/**
+ * @extends ServiceEntityRepository<Cbnotification>
+ *
+ * @method Cbnotification|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Cbnotification|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Cbnotification[]    findAll()
+ * @method Cbnotification[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ */
+class CbnotificationRepository extends ServiceEntityRepository
+{
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, Cbnotification::class);
+    }
+
+//    /**
+//     * @return Cbnotification[] Returns an array of Cbnotification objects
+//     */
+//    public function findByExampleField($value): array
+//    {
+//        return $this->createQueryBuilder('a')
+//            ->andWhere('a.exampleField = :val')
+//            ->setParameter('val', $value)
+//            ->orderBy('a.id', 'ASC')
+//            ->setMaxResults(10)
+//            ->getQuery()
+//            ->getResult()
+//        ;
+//    }
+
+//    public function findOneBySomeField($value): ?Cbnotification
+//    {
+//        return $this->createQueryBuilder('a')
+//            ->andWhere('a.exampleField = :val')
+//            ->setParameter('val', $value)
+//            ->getQuery()
+//            ->getOneOrNullResult()
+//        ;
+//    }
+}

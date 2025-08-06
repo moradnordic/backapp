@@ -1,0 +1,48 @@
+<?php
+
+namespace App\Repository\Oriwood;
+
+use App\Entity\oriwood\Tbllisteofforms;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
+
+/**
+ * @extends ServiceEntityRepository<Tbllisteofforms>
+ *
+ * @method Tbllisteofforms|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Tbllisteofforms|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Tbllisteofforms[]    findAll()
+ * @method Tbllisteofforms[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ */
+class TbllisteofformsRepository extends ServiceEntityRepository
+{
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, Tbllisteofforms::class);
+    }
+
+//    /**
+//     * @return Tbllisteofforms[] Returns an array of Tbllisteofforms objects
+//     */
+//    public function findByExampleField($value): array
+//    {
+//        return $this->createQueryBuilder('a')
+//            ->andWhere('a.exampleField = :val')
+//            ->setParameter('val', $value)
+//            ->orderBy('a.id', 'ASC')
+//            ->setMaxResults(10)
+//            ->getQuery()
+//            ->getResult()
+//        ;
+//    }
+
+//    public function findOneBySomeField($value): ?Tbllisteofforms
+//    {
+//        return $this->createQueryBuilder('a')
+//            ->andWhere('a.exampleField = :val')
+//            ->setParameter('val', $value)
+//            ->getQuery()
+//            ->getOneOrNullResult()
+//        ;
+//    }
+}

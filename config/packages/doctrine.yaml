@@ -1,6 +1,6 @@
 doctrine:
     dbal:
-        default_connection: nd
+        default_connection: sage_system
         connections:
             nd:
                 driver: 'pdo_sqlsrv'
@@ -31,31 +31,34 @@ doctrine:
         entity_managers:
             nd:
                 connection: nd
+                default_repository_class: App\Repository\Nd\BaseRepository
                 mappings:
                     nd:
                         is_bundle: false
                         type: attribute
-                        dir: '%kernel.project_dir%/src/Entity/nd'
-                        prefix: 'App\Entity\nd'
-                        alias: nd
+                        dir: '%kernel.project_dir%/src/Entity/Nd'
+                        prefix: 'App\Entity\Nd'
+                        alias: Nd
             oriwood:
                 connection: oriwood
+                default_repository_class: App\Repository\Oriwood\BaseRepository
                 mappings:
                     oriwood:
                         is_bundle: false
                         type: attribute
-                        dir: '%kernel.project_dir%/src/Entity/oriwood'
-                        prefix: 'App\Entity\oriwood'
-                        alias: oriwood
+                        dir: '%kernel.project_dir%/src/Entity/Oriwood'
+                        prefix: 'App\Entity\Oriwood'
+                        alias: Oriwood
             sage_system:
                 connection: sage_system
+                default_repository_class: App\Repository\SageSystem\BaseRepository
                 mappings:
                     sage_system:
                         is_bundle: false
                         type: attribute
-                        dir: '%kernel.project_dir%/src/Entity/sage_system'
-                        prefix: 'App\Entity\sage_system'
-                        alias: sage_system
+                        dir: '%kernel.project_dir%/src/Entity/SageSystem'
+                        prefix: 'App\Entity\SageSystem'
+                        alias: SageSystem
 
 when@test:
     doctrine:
