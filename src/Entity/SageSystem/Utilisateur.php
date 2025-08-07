@@ -2,12 +2,14 @@
 
 namespace App\Entity\SageSystem;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\SageSystem\UtilisateurRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Table(name: 'utilisateur')]
 #[ORM\Entity(repositoryClass: UtilisateurRepository::class)]
+#[ApiResource]
 class Utilisateur
 {
     #[ORM\Column(name: "id")]
