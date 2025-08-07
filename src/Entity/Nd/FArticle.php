@@ -433,8 +433,6 @@ class FArticle
     #[ORM\Column(name: "[Code Decor]", length: 21, nullable: true)]
     private ?string $codeDecor = null;
 
-    #[ORM\Column(name: "id", nullable: true)]
-    private ?int $id = null;
 
     public function getCbmarq(): ?int
     {
@@ -1997,18 +1995,6 @@ class FArticle
     public function setCodeDecor(?string $codeDecor): static
     {
         $this->codeDecor = $codeDecor;
-
-        return $this;
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public function setId(?int $id): static
-    {
-        $this->id = $id;
 
         return $this;
     }
