@@ -5,6 +5,11 @@ security:
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
         users_in_memory: { memory: null }
+        app_user_provider:
+            entity:
+                class: App\Entity\SageSystem\Utilisateur
+                property: login
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -12,6 +17,22 @@ security:
         main:
             lazy: true
             provider: users_in_memory
+        login:
+
+            stateless: true
+            json_login:
+                check_path: /api/login_check
+                provider: app_user_provider
+                username_path: login     # or "username"
+                password_path: motPasse
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+
+        api:
+            pattern: ^/api
+            stateless: true
+            provider: app_user_provider
+            jwt: ~
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall

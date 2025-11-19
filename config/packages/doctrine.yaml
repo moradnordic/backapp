@@ -10,6 +10,7 @@ doctrine:
                 password: '%env(DB_PASSWORD)%'
                 dbname: '%env(DB_NAME_ND)%'
                 schema_filter: '/^dbo\./'
+
             oriwood:
                 driver: 'pdo_sqlsrv'
                 host: '%env(DB_HOST)%'
@@ -27,6 +28,7 @@ doctrine:
                 dbname: '%env(DB_NAME_SAGE)%'
                 schema_filter: '/^dbo\./'
     orm:
+        auto_generate_proxy_classes: true
         default_entity_manager: nd
         entity_managers:
             nd:
@@ -69,7 +71,7 @@ when@test:
 when@prod:
     doctrine:
         orm:
-            auto_generate_proxy_classes: false
+            auto_generate_proxy_classes: true
             proxy_dir: '%kernel.build_dir%/doctrine/orm/Proxies'
             query_cache_driver:
                 type: pool
@@ -77,6 +79,7 @@ when@prod:
             result_cache_driver:
                 type: pool
                 pool: doctrine.result_cache_pool
+
 
     framework:
         cache:

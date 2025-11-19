@@ -7,15 +7,17 @@
         "php": ">=8.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "doctrine/dbal": "^3",
-        "doctrine/doctrine-bundle": "^2.15",
-        "doctrine/doctrine-migrations-bundle": "^3.4",
-        "doctrine/orm": "^3.5",
-        "lexik/jwt-authentication-bundle": "^3.1",
-        "siburuxue/doctrine-helper": "^1.0",
+        "ext-pdo": "*",
+        "api-platform/core": ">=4.2.6",
+        "doctrine/dbal": "^3.10.3",
+        "doctrine/doctrine-bundle": "^2.18.1",
+        "doctrine/doctrine-migrations-bundle": "^3.7",
+        "doctrine/orm": "^3.5.7",
+        "lexik/jwt-authentication-bundle": ">=3.1.1",
+        "siburuxue/doctrine-helper": "^1.0.7",
         "symfony/console": "7.3.*",
         "symfony/dotenv": "7.3.*",
-        "symfony/flex": "^2",
+        "symfony/flex": "^2.10",
         "symfony/framework-bundle": "7.3.*",
         "symfony/process": "7.3.*",
         "symfony/runtime": "7.3.*",
@@ -72,6 +74,7 @@
         }
     },
     "require-dev": {
+        "phpunit/phpunit": ">=11.5.44",
         "symfony/maker-bundle": "^1.64"
     }
 }

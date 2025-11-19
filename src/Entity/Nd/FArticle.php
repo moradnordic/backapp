@@ -433,8 +433,6 @@ class FArticle
     #[ORM\Column(name: "[Code Decor]", length: 21, nullable: true)]
     private ?string $codeDecor = null;
 
-    #[ORM\Column(name: "id", nullable: true)]
-    private ?int $id = null;
 
     public function getCbmarq(): ?int
     {
